@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paul Niland — Resume</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Paul Niland</h1>
+    <p><a href="mailto:paul@niland.tw">Contact: paul@niland.tw</a></p>
+    <a href="assets/Resume-2023.pdf" download>📄 Download CV</a>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Experienced professional across communications, analysis, project management, and teaching. Adaptable and international in scope.</p>
+  </section>
+
+  <details>
+    <summary>🌍 Experience</summary>
+    <div class="filters">
+      <button onclick="filterExp('all')">All</button>
+      <button onclick="filterExp('tech')">Tech</button>
+      <button onclick="filterExp('teaching')">Teaching</button>
+      <button onclick="filterExp('gov')">Government</button>
+    </div>
+
+    <div id="timeline">
+      <!-- Example Entries -->
+      <div class="entry tech">
+        <img src="assets/logos/gigabyte.png" alt="Gigabyte Logo" />
+        <p><strong>Gigabyte Server</strong> — Marketing Manager (Jul 2017–Dec 2017)</p>
+      </div>
+      <div class="entry teaching">
+        <img src="assets/logos/qnap.png" alt="QNAP Logo" />
+        <p><strong>QNAP Inc.</strong> — Teaching & Technical (Feb 2014–Aug 2016)</p>
+      </div>
+      <div class="entry gov">
+        <img src="assets/logos/dlink.png" alt="D-Link Logo" />
+        <p><strong>UK Government</strong> — Research Officer (Apr 2001–Aug 2003)</p>
+      </div>
+    </div>
+  </details>
+
+  <details>
+    <summary>📜 Skills</summary>
+    <ul>
+      <li>Business Analysis</li>
+      <li>ISO 27001 Compliance</li>
+      <li>Migration & Risk Assessment</li>
+      <li>Change Management</li>
+      <li>Project Planning</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>🎓 Education & Certifications</summary>
+    <ul>
+      <li>BA, Politics — University of Sussex</li>
+      <li>MRes, History — University of North London</li>
+      <li>TEFL/TESOL — International TEFL Academy</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>📬 Get in Touch</summary>
+    <form id="contactForm" action="#" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required />
+      
+      <label>Email</label>
+      <input type="email" name="email" required />
+      
+      <label>Message</label>
+      <textarea name="message" rows="4" required></textarea>
+
+      <!-- Honeypot anti-spam -->
+      <div style="display:none;">
+        <label>Company</label>
+        <input type="text" name="company" />
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+  </details>
+
+  <footer>
+    <p>Copyright © Paul Niland</p>
+  </footer>
+</body>
+</html>
