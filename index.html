@@ -1,95 +1,686 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Paul Niland — Resume</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Niland - Professional CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f6fa;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            display: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .chinese-name {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+
+        .section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .section-title:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .collapse-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            color: #667eea;
+        }
+
+        .collapsed .collapse-icon {
+            transform: rotate(-90deg);
+        }
+
+        .section-content {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease, opacity 0.3s ease, padding 0.3s ease;
+            opacity: 1;
+        }
+
+        .collapsed .section-content {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .collapse-all-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .collapse-all-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .collapse-all-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .duration {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .position {
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .responsibilities {
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: #667eea;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .intro-text {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #495057;
+            text-align: justify;
+            margin-bottom: 30px;
+            border-left: 4px solid #28a745;
+        }
+
+        .region-header {
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .teaching-item {
+            background: #fff3cd;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .school-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #856404;
+            margin-bottom: 8px;
+        }
+
+        .teaching-details {
+            color: #6c5b00;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Paul Niland</h1>
-    <p><a href="mailto:paul@niland.tw">Contact: paul@niland</a></p>
-    <a href="assets/Resume-2023.pdf" download>📄 Download CV</a>
-  </header>
+    <div class="container">
+        <!-- Collapse All Button -->
+        <div class="collapse-all-container fade-in">
+            <button class="collapse-all-btn" onclick="toggleAllSections()">
+                <span id="collapse-btn-text">Collapse All Sections</span>
+            </button>
+        </div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Experienced professional across communications, analysis, project management, and teaching. Adaptable and international in scope.</p>
-  </section>
+        <!-- Header Card -->
+        <div class="card fade-in">
+            <div class="header">
+                <div class="header-content">
+                    <h1 class="name">PAUL NILAND</h1>
+                    <p class="chinese-name">孫保羅先生</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>paul@niland.tw</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>+84 932 069 891</span>
+                        </div>
+                    </div>
+                    <p class="tagline">Experienced professional across communications, analysis, project management, and teaching. Adaptable and international in scope.</p>
+                </div>
+            </div>
+        </div>
 
-  <details>
-    <summary>🌍 Experience</summary>
-    <div class="filters">
-      <button onclick="filterExp('all')">All</button>
-      <button onclick="filterExp('tech')">Tech</button>
-      <button onclick="filterExp('teaching')">Teaching</button>
-      <button onclick="filterExp('gov')">Government</button>
+        <!-- Professional Summary -->
+        <div class="card fade-in">
+            <div class="section">
+                <h2 class="section-title" onclick="toggleSection(this)">
+                    Professional Summary
+                    <span class="collapse-icon">▼</span>
+                </h2>
+                <div class="section-content">
+                    <div class="intro-text">
+                        With a number of years' experience, skills, and qualifications, I bring value as a versatile professional across multiple industries. I've built my career wearing many hats and excel in collaborative environments with colleagues from numerous departments. My international experience has strengthened my adaptability and communication skills, often serving as the sole gatekeeper for international communication requiring both flexibility and responsiveness.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- International Experience -->
+        <div class="card fade-in">
+            <div class="section">
+                <h2 class="section-title" onclick="toggleSection(this)">
+                    International Experience
+                    <span class="collapse-icon">▼</span>
+                </h2>
+                <div class="section-content">
+                
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">Hands Group</div>
+                            <div class="duration">Jan 2018 - Jan 2019</div>
+                        </div>
+                        <div class="position">Communications Strategy</div>
+                        <div class="responsibilities">Outbound Communication</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">Gigabyte Server</div>
+                            <div class="duration">Jul 2017 - Dec 2017</div>
+                        </div>
+                        <div class="position">Communications Manager</div>
+                        <div class="responsibilities">Outbound Communication</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">AAEON (ASUS)</div>
+                            <div class="duration">Jan 2017 - Jun 2017</div>
+                        </div>
+                        <div class="position">Marketing Manager</div>
+                        <div class="responsibilities">Press, Social, Stakeholder Communication, EDM, Brochures, Content Production</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">QNAP Inc.</div>
+                            <div class="duration">Feb 2014 - Aug 2016</div>
+                        </div>
+                        <div class="position">Senior Marketing & Technical Marketing</div>
+                        <div class="responsibilities">Press Releases, Social Media, Trade Shows, Video, EDM, Brochures, UI, Content Production, Production SOP, Business Analysis, Business Case, Consolidation, Documentation Design, Risk Assessment, Service Level Agreements, Compliance, End-User Interface Design</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">D-Link</div>
+                            <div class="duration">May 2012 - Apr 2014</div>
+                        </div>
+                        <div class="position">Technical Marketing</div>
+                        <div class="responsibilities">Business Analysis, Business Case, Consolidation, Documentation Design, Risk Assessment, Service Level Agreements, Compliance, End-User Interface Design</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">United Nations</div>
+                            <div class="duration">Jan 2010 - Jan 2011</div>
+                        </div>
+                        <div class="position">Advisor to the Ambassador of Guyana</div>
+                        <div class="responsibilities">Business Analysis, Business Case, Risk Assessment, Security Profiling, Procurement, Service Level Agreement</div>
+                    </div>
+                </div>
+
+                <div class="region-header">European Experience</div>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">KMD</div>
+                            <div class="duration">Dec 2010 - Jun 2010</div>
+                        </div>
+                        <div class="position">Data Migration Consultant</div>
+                        <div class="responsibilities">Server Virtualization, Server consolidation, Database Administration, MS SQL Server Integration Services, MS SQL Server Analysis Services, MS Structured Querying Language</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">Danfoss</div>
+                            <div class="duration">Jan 2007 - May 2009</div>
+                        </div>
+                        <div class="position">Leadership Reporting</div>
+                        <div class="responsibilities">Business Intelligence Reports for leadership, Server consolidation, migration, virtualization best practices, Financial reporting</div>
+                    </div>
+                </div>
+
+                <div class="region-header">United Kingdom Experience</div>
+                <div class="experience-grid">
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">OCSL HP</div>
+                            <div class="duration">Sep 2003 - Aug 2005</div>
+                        </div>
+                        <div class="position">Server Integration</div>
+                        <div class="responsibilities">Business Analysis, Change Management, Compliance, Service Level Agreement</div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <div class="company">UK Government</div>
+                            <div class="duration">Apr 2001 - Aug 2003</div>
+                        </div>
+                        <div class="position">Research Officer</div>
+                        <div class="responsibilities">United Kingdom Passport Agency statistical analysis, Criminal Records Bureau Database & front end prototyping, Operation Middle-Market audit</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teaching Experience -->
+        <div class="card fade-in">
+            <div class="section">
+                <h2 class="section-title" onclick="toggleSection(this)">
+                    Teaching Experience
+                    <span class="collapse-icon">▼</span>
+                </h2>
+                <div class="section-content">
+                
+                <div class="region-header">Ho Chi Minh City, Vietnam</div>
+                <div class="teaching-grid">
+                    <div class="teaching-item">
+                        <div class="school-name">J's Language School</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">May 2012 - Apr 2017</div>
+                        <div class="teaching-details">
+                            <strong>Advanced ESL Teacher</strong><br>
+                            Business ESL for Senior Managers, Business ESL for employees, advanced ESL for children (ages 9-15)
+                        </div>
+                    </div>
+
+                    <div class="teaching-item">
+                        <div class="school-name">EMG</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Jun 2020 - Jul 2020</div>
+                        <div class="teaching-details">
+                            <strong>Contract Teacher Grades 1-5</strong><br>
+                            Public Schools - Cover Teacher
+                        </div>
+                    </div>
+
+                    <div class="teaching-item">
+                        <div class="school-name">ICLC</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">May 2020 - Jun 2020</div>
+                        <div class="teaching-details">
+                            <strong>Contract Teacher Grades 1-5</strong><br>
+                            Public School - Teacher
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-header">Shenzhen, China</div>
+                <div class="teaching-grid">
+                    <div class="teaching-item">
+                        <div class="school-name">Language First</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Jun 2019 - Dec 2019</div>
+                        <div class="teaching-details">
+                            <strong>Contract Adult ESL Teacher</strong><br>
+                            One-to-one, Business ESL, One-to-Corporate Department
+                        </div>
+                    </div>
+                </div>
+
+                <div class="region-header">Taipei, Taiwan</div>
+                <div class="teaching-grid">
+                    <div class="teaching-item">
+                        <div class="school-name">E-Solutions</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Sep 2020 - Sep 2022</div>
+                        <div class="teaching-details">
+                            <strong>Contract Teacher</strong><br>
+                            Public Schools - Teacher
+                        </div>
+                    </div>
+
+                    <div class="teaching-item">
+                        <div class="school-name">AEI</div>
+                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Mar 2014 - Oct 2014</div>
+                        <div class="teaching-details">
+                            <strong>Manager & Teacher</strong><br>
+                            IT audit, marketing, class scheduling, student performance reviews, parent reviews
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="card fade-in">
+            <div class="section">
+                <h2 class="section-title" onclick="toggleSection(this)">
+                    Core Skills & Competencies
+                    <span class="collapse-icon">▼</span>
+                </h2>
+                <div class="section-content">
+                    <div class="skills-grid">
+                    <div class="skill-item">Business Analysis</div>
+                    <div class="skill-item">Change Management</div>
+                    <div class="skill-item">Compliance</div>
+                    <div class="skill-item">ISO 27001</div>
+                    <div class="skill-item">Mentoring</div>
+                    <div class="skill-item">Migration</div>
+                    <div class="skill-item">Performance Analysis</div>
+                    <div class="skill-item">Process Audit</div>
+                    <div class="skill-item">Project Management</div>
+                    <div class="skill-item">Project Planning</div>
+                    <div class="skill-item">Reporting</div>
+                    <div class="skill-item">Risk Assessment</div>
+                    <div class="skill-item">Service Level Agreements</div>
+                    <div class="skill-item">Class Preparation</div>
+                    <div class="skill-item">Activity Planning                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div id="timeline">
-      <!-- Example Entries -->
-      <div class="entry tech">
-        <img src="assets/logos/gigabyte.png" alt="Gigabyte Logo" />
-        <p><strong>Gigabyte Server</strong> — Marketing Manager (Jul 2017–Dec 2017)</p>
-      </div>
-      <div class="entry teaching">
-        <img src="assets/logos/qnap.png" alt="QNAP Logo" />
-        <p><strong>QNAP Inc.</strong> — Teaching & Technical (Feb 2014–Aug 2016)</p>
-      </div>
-      <div class="entry gov">
-        <img src="assets/logos/dlink.png" alt="D-Link Logo" />
-        <p><strong>UK Government</strong> — Research Officer (Apr 2001–Aug 2003)</p>
-      </div>
-    </div>
-  </details>
+    <script>
+        // Collapsible sections functionality
+        function toggleSection(titleElement) {
+            const section = titleElement.closest('.section');
+            section.classList.toggle('collapsed');
+        }
 
-  <details>
-    <summary>📜 Skills</summary>
-    <ul>
-      <li>Business Analysis</li>
-      <li>ISO 27001 Compliance</li>
-      <li>Migration & Risk Assessment</li>
-      <li>Change Management</li>
-      <li>Project Planning</li>
-    </ul>
-  </details>
+        function toggleAllSections() {
+            const sections = document.querySelectorAll('.section');
+            const btnText = document.getElementById('collapse-btn-text');
+            const allCollapsed = document.querySelectorAll('.section.collapsed').length === sections.length - 1; // -1 because header isn't collapsible
 
-  <details>
-    <summary>🎓 Education & Certifications</summary>
-    <ul>
-      <li>BA, Politics — University of Sussex</li>
-      <li>MRes, History — University of North London</li>
-      <li>TEFL/TESOL — International TEFL Academy</li>
-    </ul>
-  </details>
+            sections.forEach(section => {
+                // Skip the header section
+                if (!section.closest('.header')) {
+                    if (allCollapsed) {
+                        section.classList.remove('collapsed');
+                    } else {
+                        section.classList.add('collapsed');
+                    }
+                }
+            });
 
-  <details>
-    <summary>📬 Get in Touch</summary>
-    <form id="contactForm" action="#" method="POST">
-      <label>Name</label>
-      <input type="text" name="name" required />
-      
-      <label>Email</label>
-      <input type="email" name="email" required />
-      
-      <label>Message</label>
-      <textarea name="message" rows="4" required></textarea>
+            btnText.textContent = allCollapsed ? 'Collapse All Sections' : 'Expand All Sections';
+        }
 
-      <!-- Honeypot anti-spam -->
-      <div style="display:none;">
-        <label>Company</label>
-        <input type="text" name="company" />
-      </div>
+        // Add smooth scrolling and enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
 
-      <button type="submit">Send</button>
-    </form>
-  </details>
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
 
-  <footer>
-    <p>Copyright © Paul Niland</p>
-  </footer>
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add hover effects to experience items
+            document.querySelectorAll('.experience-item, .teaching-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+
+            // Add click animation to skill items
+            document.querySelectorAll('.skill-item').forEach(skill => {
+                skill.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
