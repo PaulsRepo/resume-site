@@ -354,228 +354,25 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Collapse All Button -->
-        <div class="collapse-all-container fade-in">
-            <button class="collapse-all-btn" onclick="toggleAllSections()">
-                <span id="collapse-btn-text">Collapse All Sections</span>
-            </button>
-        </div>
+  <header>
+    <h1>Paul Niland</h1>
+    <p><a href="mailto:paul@niland.tw">Contact: paul@niland</a></p>
+    <a href="assets/Resume-2023.pdf" download>📄 Download CV</a>
+  </header>
 
-        <!-- Header Card -->
-        <div class="card fade-in">
-            <div class="header">
-                <div class="header-content">
-                    <h1 class="name">PAUL NILAND</h1>
-                    <p class="chinese-name">孫保羅先生</p>
-                                        <div class="contact-item">
-                        <a href="assets/Resume-2023.pdf" download style="color: white; font-weight: bold;">
-                            📄 Download My Resume
-                        </a>
-                        </div>
-                    </div>
-                    <p class="tagline">Experienced professional across communications, analysis, project management, and teaching. Adaptable and international in scope.</p>
-                </div>
-            </div>
-        </div>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Experienced professional across communications, analysis, project management, and teaching. Adaptable and international in scope.</p>
+  </section>
 
-        <!-- Professional Summary -->
-        <div class="card fade-in">
-            <div class="section">
-                <h2 class="section-title" onclick="toggleSection(this)">
-                    Professional Summary
-                    <span class="collapse-icon">▼</span>
-                </h2>
-                <div class="section-content">
-                    <div class="intro-text">
-                        With a number of years' experience, skills, and qualifications, I bring value as a versatile professional across multiple industries. I've built my career wearing many hats and excel in collaborative environments with colleagues from numerous departments. My international experience has strengthened my adaptability and communication skills, often serving as the sole gatekeeper for international communication requiring both flexibility and responsiveness.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- International Experience -->
-        <div class="card fade-in">
-            <div class="section">
-                <h2 class="section-title" onclick="toggleSection(this)">
-                    International Experience
-                    <span class="collapse-icon">▼</span>
-                </h2>
-                <div class="section-content">
-                
-                <div class="experience-grid">
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">Hands Group</div>
-                            <div class="duration">Jan 2018 - Jan 2019</div>
-                        </div>
-                        <div class="position">Communications Strategy</div>
-                        <div class="responsibilities">Outbound Communication</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">Gigabyte Server</div>
-                            <div class="duration">Jul 2017 - Dec 2017</div>
-                        </div>
-                        <div class="position">Communications Manager</div>
-                        <div class="responsibilities">Outbound Communication</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">AAEON (ASUS)</div>
-                            <div class="duration">Jan 2017 - Jun 2017</div>
-                        </div>
-                        <div class="position">Marketing Manager</div>
-                        <div class="responsibilities">Press, Social, Stakeholder Communication, EDM, Brochures, Content Production</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">QNAP Inc.</div>
-                            <div class="duration">Feb 2014 - Aug 2016</div>
-                        </div>
-                        <div class="position">Senior Marketing & Technical Marketing</div>
-                        <div class="responsibilities">Press Releases, Social Media, Trade Shows, Video, EDM, Brochures, UI, Content Production, Production SOP, Business Analysis, Business Case, Consolidation, Documentation Design, Risk Assessment, Service Level Agreements, Compliance, End-User Interface Design</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">D-Link</div>
-                            <div class="duration">May 2012 - Apr 2014</div>
-                        </div>
-                        <div class="position">Technical Marketing</div>
-                        <div class="responsibilities">Business Analysis, Business Case, Consolidation, Documentation Design, Risk Assessment, Service Level Agreements, Compliance, End-User Interface Design</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">United Nations</div>
-                            <div class="duration">Jan 2010 - Jan 2011</div>
-                        </div>
-                        <div class="position">Advisor to the Ambassador of Guyana</div>
-                        <div class="responsibilities">Business Analysis, Business Case, Risk Assessment, Security Profiling, Procurement, Service Level Agreement</div>
-                    </div>
-                </div>
-
-                <div class="region-header">European Experience</div>
-                <div class="experience-grid">
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">KMD</div>
-                            <div class="duration">Dec 2010 - Jun 2010</div>
-                        </div>
-                        <div class="position">Data Migration Consultant</div>
-                        <div class="responsibilities">Server Virtualization, Server consolidation, Database Administration, MS SQL Server Integration Services, MS SQL Server Analysis Services, MS Structured Querying Language</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">Danfoss</div>
-                            <div class="duration">Jan 2007 - May 2009</div>
-                        </div>
-                        <div class="position">Leadership Reporting</div>
-                        <div class="responsibilities">Business Intelligence Reports for leadership, Server consolidation, migration, virtualization best practices, Financial reporting</div>
-                    </div>
-                </div>
-
-                <div class="region-header">United Kingdom Experience</div>
-                <div class="experience-grid">
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">OCSL HP</div>
-                            <div class="duration">Sep 2003 - Aug 2005</div>
-                        </div>
-                        <div class="position">Server Integration</div>
-                        <div class="responsibilities">Business Analysis, Change Management, Compliance, Service Level Agreement</div>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <div class="company">UK Government</div>
-                            <div class="duration">Apr 2001 - Aug 2003</div>
-                        </div>
-                        <div class="position">Research Officer</div>
-                        <div class="responsibilities">United Kingdom Passport Agency statistical analysis, Criminal Records Bureau Database & front end prototyping, Operation Middle-Market audit</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Teaching Experience -->
-        <div class="card fade-in">
-            <div class="section">
-                <h2 class="section-title" onclick="toggleSection(this)">
-                    Teaching Experience
-                    <span class="collapse-icon">▼</span>
-                </h2>
-                <div class="section-content">
-                
-                <div class="region-header">Ho Chi Minh City, Vietnam</div>
-                <div class="teaching-grid">
-                    <div class="teaching-item">
-                        <div class="school-name">J's Language School</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">May 2012 - Apr 2017</div>
-                        <div class="teaching-details">
-                            <strong>Advanced ESL Teacher</strong><br>
-                            Business ESL for Senior Managers, Business ESL for employees, advanced ESL for children (ages 9-15)
-                        </div>
-                    </div>
-
-                    <div class="teaching-item">
-                        <div class="school-name">EMG</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Jun 2020 - Jul 2020</div>
-                        <div class="teaching-details">
-                            <strong>Contract Teacher Grades 1-5</strong><br>
-                            Public Schools - Cover Teacher
-                        </div>
-                    </div>
-
-                    <div class="teaching-item">
-                        <div class="school-name">ICLC</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">May 2020 - Jun 2020</div>
-                        <div class="teaching-details">
-                            <strong>Contract Teacher Grades 1-5</strong><br>
-                            Public School - Teacher
-                        </div>
-                    </div>
-                </div>
-
-                <div class="region-header">Shenzhen, China</div>
-                <div class="teaching-grid">
-                    <div class="teaching-item">
-                        <div class="school-name">Language First</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Jun 2019 - Dec 2019</div>
-                        <div class="teaching-details">
-                            <strong>Contract Adult ESL Teacher</strong><br>
-                            One-to-one, Business ESL, One-to-Corporate Department
-                        </div>
-                    </div>
-                </div>
-
-                <div class="region-header">Taipei, Taiwan</div>
-                <div class="teaching-grid">
-                    <div class="teaching-item">
-                        <div class="school-name">E-Solutions</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Sep 2020 - Sep 2022</div>
-                        <div class="teaching-details">
-                            <strong>Contract Teacher</strong><br>
-                            Public Schools - Teacher
-                        </div>
-                    </div>
-
-                    <div class="teaching-item">
-                        <div class="school-name">AEI</div>
-                        <div class="duration" style="background: #ffc107; color: #856404; display: inline-block; margin-bottom: 10px;">Mar 2014 - Oct 2014</div>
-                        <div class="teaching-details">
-                            <strong>Manager & Teacher</strong><br>
-                            IT audit, marketing, class scheduling, student performance reviews, parent reviews
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <details>
+    <summary>🌍 Experience</summary>
+    <div class="filters">
+      <button onclick="filterExp('all')">All</button>
+      <button onclick="filterExp('tech')">Tech</button>
+      <button onclick="filterExp('teaching')">Teaching</button>
+      <button onclick="filterExp('gov')">Government</button>
+    </div>
 
         <!-- Skills -->
         <div class="card fade-in">
@@ -605,6 +402,79 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Collapsible sections functionality
+        function toggleSection(titleElement) {
+            const section = titleElement.closest('.section');
+            section.classList.toggle('collapsed');
+        }
+
+        function toggleAllSections() {
+            const sections = document.querySelectorAll('.section');
+            const btnText = document.getElementById('collapse-btn-text');
+            const allCollapsed = document.querySelectorAll('.section.collapsed').length === sections.length - 1; // -1 because header isn't collapsible
+
+            sections.forEach(section => {
+                // Skip the header section
+                if (!section.closest('.header')) {
+                    if (allCollapsed) {
+                        section.classList.remove('collapsed');
+                    } else {
+                        section.classList.add('collapsed');
+                    }
+                }
+            });
+
+            btnText.textContent = allCollapsed ? 'Collapse All Sections' : 'Expand All Sections';
+        }
+
+        // Add smooth scrolling and enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Add hover effects to experience items
+            document.querySelectorAll('.experience-item, .teaching-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px) scale(1.02)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+
+            // Add click animation to skill items
+            document.querySelectorAll('.skill-item').forEach(skill => {
+                skill.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.05)';
+                    }, 100);
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
 <!-- Contact Section -->
 <div class="card fade-in">
   <div class="section">
